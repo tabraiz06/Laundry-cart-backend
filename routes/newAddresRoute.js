@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/add", verifyToken, async (req, res) => {
   try {
     const { address} = req.body;
-    console.log(req.body)
+   
     const newAddress = await NewAddress.create({
       userId: req.user,
       address,
@@ -33,7 +33,7 @@ router.get("/getaddress", verifyToken,async (req, res) => {
 
 router.put("/update/:id", async (req, res) => {
   try {
-    // console.log(req.params.id);
+  
     const { address, state, district, pinCode } = req.body;
     const updateAddress = await NewAddress.findByIdAndUpdate(
       { _id: req.params.id },
