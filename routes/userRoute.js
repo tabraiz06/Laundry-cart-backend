@@ -8,7 +8,7 @@ const verifyToken = require("../middleware/verifyToken");
 const secret_key = "ABC";
 
 router.post("/register", async (req, res) => {
-  console.log(req.body.address);
+  
   const { name, email, password, phoneNumber } = req.body.data;
 
   try {
@@ -71,7 +71,7 @@ router.post("/signin", async (req, res) => {
 router.put("/newaddress", verifyToken, async (req, res) => {
   try {
     const { newAddress } = req.body;
-    console.log(newAddress);
+    
     const user = await Users.findByIdAndUpdate(
       { _id: req.user },
       { newAddress }
