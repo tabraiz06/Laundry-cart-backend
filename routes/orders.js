@@ -20,7 +20,7 @@ router.get("/all", verifyToken, async (req, res) => {
 });
 
 router.get("/orders/:id", verifyToken, async (req, res) => {
-  console.log(req.params.id);
+ 
   try {
     const filterdOrder = await Orders.findById({ _id: req.params.id });
     res.status(200).json(filterdOrder);
@@ -33,7 +33,7 @@ router.get("/orders/:id", verifyToken, async (req, res) => {
 
 router.put("/:id", verifyToken, async (req, res) => {
   const { status } = req.body;
-  console.log(status);
+
   try {
     const cancelOrder = await Orders.findByIdAndUpdate(
       { _id: req.params.id },
@@ -48,7 +48,7 @@ router.put("/:id", verifyToken, async (req, res) => {
 });
 
 router.post("/create/order", async (req, res) => {
-  console.log(req.body);
+ 
   const {
     order,
     storeLocation,
