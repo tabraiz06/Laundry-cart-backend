@@ -29,7 +29,6 @@ router.post("/register", async (req, res) => {
       res.status(200).json({
         message: "Registration successful.Please Sign in now",
         token,
-        user,
       });
     }
   } catch (e) {
@@ -59,9 +58,7 @@ router.post("/signin", async (req, res) => {
       } else {
         const data = { user: userExist.id };
         const token = jwt.sign(data, secret_key);
-        res
-          .status(200)
-          .json({ message: "login successfull", token, name: userExist.name });
+        res.status(200).json({ message: "login successfull", token });
       }
     }
   } catch (error) {
