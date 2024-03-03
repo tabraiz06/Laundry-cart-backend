@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
       const data = { user: user.id };
       const token = jwt.sign(data, secret_key);
       res.status(200).json({
-        message: "Registration successful.Please Sign in now",
+        message: "Registration successful",
         token,
       });
     }
