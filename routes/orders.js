@@ -69,7 +69,7 @@ router.post("/create/order", async (req, res) => {
       finalQuantity,
       userId: req.user,
     });
-    res.status(200).json(orders);
+    res.status(200).json(message: "order created successfully " );
   } catch (error) {
     res.status(400).json({
       error: error.message,
