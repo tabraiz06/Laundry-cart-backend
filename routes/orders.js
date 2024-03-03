@@ -39,7 +39,7 @@ router.put("/:id", verifyToken, async (req, res) => {
       { _id: req.params.id },
       { status }
     );
-    res.status(200).json({ messsage: "order canceled succcesfully" });
+    res.status(200).json({ message: "order canceled succcesfully" });
   } catch (e) {
     res.status(400).json({
       error: e.message,
